@@ -5,9 +5,4 @@
     <debug>true</debug>
   </jsp-descriptor>
   <context-root>/bookmark-javaee6</context-root>
-  <!--
-  <library-ref>
-    <library-name>mysql-connector-java-commercial-5</library-name>
-  </library-ref>
-  -->
 </weblogic-web-app>

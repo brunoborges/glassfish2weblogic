@@ -6,13 +6,14 @@
 package com.oracle.samples.gf2wls;
 
 import java.util.Set;
+import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 /**
  *
  * @author bruno
  */
-@javax.ws.rs.ApplicationPath("rest")
+@ApplicationPath("rest")
 public class RESTApplicationConfig extends Application {
 
     @Override
@@ -30,7 +31,7 @@ public class RESTApplicationConfig extends Application {
     }
 
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(com.oracle.samples.gf2wls.BookmarkSessionBean.class);
+        resources.add(BookmarkSessionBean.class);
     }
 
 }

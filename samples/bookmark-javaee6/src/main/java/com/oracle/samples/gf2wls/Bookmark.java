@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -31,12 +32,14 @@ public class Bookmark implements Serializable {
     private Long id;
 
     @Basic(optional = false)
+    @NotNull
     private String name;
 
     @Basic(optional = false)
+    @NotNull
     private String url;
 
-    @Basic(optional = false)
+    @Basic
     private String description;
 
     public Long getId() {
