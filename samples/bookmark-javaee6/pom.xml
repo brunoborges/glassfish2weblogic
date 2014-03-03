@@ -49,7 +49,7 @@
                 <version>2.4</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <webResources>
+                    <!--<webResources>
                         <resource>
                             <directory>src</directory>
                             <targetPath>WEB-INF</targetPath>
@@ -58,7 +58,7 @@
                                 <include>wsdl/**</include>
                             </includes>
                         </resource>
-                    </webResources>
+                    </webResources-->
                 </configuration>
             </plugin>
             <plugin>
@@ -86,6 +86,33 @@
                     </execution>
                 </executions>
             </plugin>
+            
+            <!-- UNCOMMENT THIS AFTER INSTALLING THE WEBLOGIC MAVEN PLUGIN -->
+            <!--
+            <plugin>
+                <groupId>com.oracle.weblogic</groupId>
+                <artifactId>weblogic-maven-plugin</artifactId>
+                <version>12.1.2-0-0</version>
+                <executions>
+                    <execution>
+                        <id>wls-deploy</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                        <configuration>
+                            <adminurl>t3://localhost:7001</adminurl>
+                            <user>weblogic</user>
+                            <password>welcome1</password>
+                            <source>${project.build.directory}/${project.build.finalName}.${project.packaging}</source>
+                            <targets>AdminServer</targets>
+                            <verbose>true</verbose>
+                            <name>${project.build.finalName}</name>
+                        </configuration>
+                    </execution>            
+                </executions>
+            </plugin>
+            -->
         </plugins>
     </build>
 
