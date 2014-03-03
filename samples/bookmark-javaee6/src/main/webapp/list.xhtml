@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Bookmarks - Java EE 6</title>
+    </h:head>
+    <h:body>
+        <h:panelGroup layout="block" rendered="#{empty listBookmarkBean.listBookmarks}">
+            No item found
+            <hr/>
+        </h:panelGroup>
+
+        <h:form rendered="#{not empty listBookmarkBean.listBookmarks}">
+            <h:dataTable value="#{listBookmarkBean.listBookmarks}" var="b" border="1">
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                        #{b.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">URL</f:facet>
+                        #{b.url}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Description</f:facet>
+                        #{b.description}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:link outcome="form">
+                        <f:param name="id" value="#{b.id}" />
+                        Edit
+                    </h:link>
+                    <h:commandLink action="#{listBookmarkBean.delete(b.id)}">
+                        Delete
+                    </h:commandLink>
+                </h:column>
+            </h:dataTable>
+
+            <h:link outcome="form">New bookmark</h:link>
+        </h:form>
+    </h:body>
+</html>
